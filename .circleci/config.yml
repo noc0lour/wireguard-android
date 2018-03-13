@@ -10,7 +10,8 @@ jobs:
       - run: sdkmanager ndk-bundle
       - checkout
       - run: 
-        command: git submodule sync --recursive && git submodule update --recursive --init
+          name: update submodules
+          command: git submodule sync --recursive && git submodule update --recursive --init
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
 #      - run:
